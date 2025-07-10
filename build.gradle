@@ -1,9 +1,14 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'com.brainterminator'
 version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'com.brainterminator.sudoku.solver.App'
+}
 
 repositories {
     mavenCentral()
