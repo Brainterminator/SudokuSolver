@@ -25,7 +25,7 @@ public class SudokuFrame extends Frame implements ISudokuRenderer {
         super("Sudoku App");
         int buttonSize = 25;
         int elementWidth = 9*buttonSize;
-        int height = 455;
+        int height = 405;
         int width = elementWidth + 20;
         int offset = 31;
         int gridSize = 2;
@@ -97,10 +97,10 @@ public class SudokuFrame extends Frame implements ISudokuRenderer {
         this.add(errorDisplay);
 
 
-        // New Button
+        // Clear Button
 
         Button emptyButton = new Button();
-        emptyButton.setLabel("New Empty");
+        emptyButton.setLabel("Clear");
         emptyButton.addActionListener(e -> {
             sudoku.reset();
             currentError = "";
@@ -112,15 +112,15 @@ public class SudokuFrame extends Frame implements ISudokuRenderer {
 
         // Example Button
 
-        Button exampleButton = new Button();
-        exampleButton.setLabel("New Example");
-        exampleButton.addActionListener(e -> {
-            new ExampleLoader().loadSudoku(sudoku);
-            currentError = "";
-            print(sudoku);
-        });
-        exampleButton.setBounds(10, offset + 3*(buttonSize + gridSize), buttonSize * 9, buttonSize);
-        this.add(exampleButton);
+//        Button exampleButton = new Button();
+//        exampleButton.setLabel("New Example");
+//        exampleButton.addActionListener(e -> {
+//            new ExampleLoader().loadSudoku(sudoku);
+//            currentError = "";
+//            print(sudoku);
+//        });
+//        exampleButton.setBounds(10, offset + 3*(buttonSize + gridSize), buttonSize * 9, buttonSize);
+//        this.add(exampleButton);
 
 
         // State display
@@ -134,7 +134,7 @@ public class SudokuFrame extends Frame implements ISudokuRenderer {
         };
         state.setBackground(Color.LIGHT_GRAY);
         state.setAlignment(Label.CENTER);
-        state.setBounds(10, offset + 4*(buttonSize + gridSize), buttonSize * 9, buttonSize);
+        state.setBounds(10, offset + 3*(buttonSize + gridSize), buttonSize * 9, buttonSize);
         this.add(state);
 
 
@@ -146,19 +146,19 @@ public class SudokuFrame extends Frame implements ISudokuRenderer {
             new BruteForceSolver(sudoku).solve();
             print(sudoku);
         });
-        solveButton.setBounds(10, offset + 5*(buttonSize + gridSize), buttonSize * 9, buttonSize);
+        solveButton.setBounds(10, offset + 4*(buttonSize + gridSize), buttonSize * 9, buttonSize);
         this.add(solveButton);
 
         //Next Step Button
 
-        Button nextStepButton = new Button();
-        nextStepButton.setLabel("Next Step");
-        nextStepButton.addActionListener(e -> {
-            new SaveSolver(sudoku).solve();
-            print(sudoku);
-        });
-        nextStepButton.setBounds(10, offset + 6*(buttonSize + gridSize), buttonSize * 9, buttonSize);
-        this.add(nextStepButton);
+//        Button nextStepButton = new Button();
+//        nextStepButton.setLabel("Next Step");
+//        nextStepButton.addActionListener(e -> {
+//            new SaveSolver(sudoku).solve();
+//            print(sudoku);
+//        });
+//        nextStepButton.setBounds(10, offset + 6*(buttonSize + gridSize), buttonSize * 9, buttonSize);
+//        this.add(nextStepButton);
 
 
         // Sudoku Fields
@@ -176,7 +176,7 @@ public class SudokuFrame extends Frame implements ISudokuRenderer {
                         text.requestFocus();
                     }
                 });
-                b.setBounds(i * buttonSize + 10, j * buttonSize + offset + 7*(buttonSize + gridSize), buttonSize, buttonSize);
+                b.setBounds(i * buttonSize + 10, j * buttonSize + offset + 5*(buttonSize + gridSize), buttonSize, buttonSize);
                 this.add(b);
             }
         }
